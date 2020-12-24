@@ -1,0 +1,67 @@
+﻿@model IEnumerable<FootballGameManager.Player>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@using (Html.BeginForm())
+{
+
+    @Html.AntiForgeryToken();
+    <form method="post">
+        <p>
+            Oponent Name: <input type="text" name="playerName">
+        </p>
+
+        <p>
+            <input type="submit" value="do" />
+        </p>
+    </form>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Team.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PlayerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusPlayer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StatusHealth)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TeamId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PlayerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusPlayer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusHealth)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+}

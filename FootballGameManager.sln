@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FootballGameManager", "FootballGameManager.csproj", "{8BC1418D-3DED-47B5-8E97-38CBD977B84D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gamesDataLayer", "..\gamesDataLayer\gamesDataLayer.csproj", "{54C2E5DD-5FD9-4DE8-935C-0DAC277D7469}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8BC1418D-3DED-47B5-8E97-38CBD977B84D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8BC1418D-3DED-47B5-8E97-38CBD977B84D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8BC1418D-3DED-47B5-8E97-38CBD977B84D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8BC1418D-3DED-47B5-8E97-38CBD977B84D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{54C2E5DD-5FD9-4DE8-935C-0DAC277D7469}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{54C2E5DD-5FD9-4DE8-935C-0DAC277D7469}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{54C2E5DD-5FD9-4DE8-935C-0DAC277D7469}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{54C2E5DD-5FD9-4DE8-935C-0DAC277D7469}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C793FE37-574D-497C-83FA-3FFD2D98A4D1}
+	EndGlobalSection
+EndGlobal

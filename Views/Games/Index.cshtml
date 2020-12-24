@@ -1,0 +1,106 @@
+﻿@using gamesDataLayer.Services;
+@model IEnumerable<FootballGameManager.Game>
+
+@{
+    ViewBag.Title = "Index";
+    List<Team> teams = ViewBag.teams;
+    List<GameResult> results = ViewBag.results;
+}
+
+<h2>Index</h2>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+<form method="post">
+    <p>
+        <label for="dataSort">choose some sort</label>
+        <select name="dataSort">
+            <option selected hidden>standart</option>
+            <option value=null>standart</option>
+            <option value=1>Data top</option>
+            <option value=0>Data Down</option>
+        </select>
+
+        <label for="gameResult">sort by result</label>
+        <select name="gameResult">
+            <option selected hidden>standart</option>
+            @if (results != null)
+            {
+                foreach (var result in results)
+                {
+                    <option value=@result>@GameResults.GetString(result)</option>
+                }
+            }
+        </select>
+    </p>
+
+    <p>
+        Oponent Name: <input type="text" name="OppTeamName">
+    </p>
+    <p>
+        Game Time: <input type="text" name="gameTime">
+    </p>
+
+    <p>
+        <input type="submit" value="do" />
+    </p>
+</form>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Stadium.Id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstTeamId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SecondTeamId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Result)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Audience)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.GameDate)
+            </th>
+            <th></th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StadiumId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => teams[item.FirstTeamId - 1].TeamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => teams[item.SecondTeamId - 1].TeamName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Result)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Audience)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.GameDate)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                </td>
+            </tr>
+        }
+
+    </table>
+
+}
